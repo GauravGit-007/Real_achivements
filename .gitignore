@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+.DS_Store
+dist/
+build/
+*.local
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Project Specific
+server/.env
+server/database.sqlite
+refrence_mongodb.md
+troubleshooting_summary.md
+"user message for antigravity.md"
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
