@@ -16,6 +16,8 @@ interface Thought {
     date: string;
 }
 
+const API_BASE_URL = (import.meta as any).env.VITE_API_URL || '';
+
 function App() {
     const [goals, setGoals] = useState<Goal[]>([]);
     const [thoughts, setThoughts] = useState<Thought[]>([]);
@@ -32,7 +34,7 @@ function App() {
 
     const fetchGoals = async () => {
         try {
-            const res = await fetch('/api/goals');
+            const res = await fetch(`${API_BASE_URL}/api/goals`);
             const data = await res.json();
             setGoals(data);
         } catch (err) {
@@ -42,7 +44,7 @@ function App() {
 
     const fetchHeatmap = async () => {
         try {
-            const res = await fetch('/api/stats/heatmap');
+            const res = await fetch(`${API_BASE_URL}/api/stats/heatmap`);
             const data = await res.json();
             const mapped = data.reduce((acc: any, curr: any) => {
                 acc[curr.date] = curr.count;
@@ -56,7 +58,7 @@ function App() {
 
     const fetchThoughts = async () => {
         try {
-            const res = await fetch('/api/thoughts');
+            const res = await fetch(`${API_BASE_URL}/api/thoughts`);
             const data = await res.json();
             setThoughts(data);
         } catch (err) {
@@ -67,7 +69,7 @@ function App() {
     const addGoal = async () => {
         if (!newGoal.name) return;
         try {
-            await fetch('/api/goals', {
+            await fetch(`${API_BASE_URL}/api/goals`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(newGoal)
@@ -83,7 +85,7 @@ function App() {
 
     const updateProgress = async (goalId: string | number) => {
         try {
-            await fetch(`/api/goals/${goalId}/track`, { method: 'POST' });
+            await fetch(`${API_BASE_URL}/api/goals/${goalId}/track`, { method: 'POST' });
             fetchGoals();
             fetchHeatmap();
         } catch (err) {
@@ -94,7 +96,7 @@ function App() {
     const addThought = async () => {
         if (!newThought.trim()) return;
         try {
-            await fetch('/api/thoughts', {
+            await fetch(`${API_BASE_URL}/api/thoughts`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ text: newThought })
