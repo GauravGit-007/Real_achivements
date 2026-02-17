@@ -1,6 +1,7 @@
 # Elite Dashboard: Project Evolution & Context
 
-This document provides a comprehensive history of the development, architectural decisions, and troubleshooting steps taken during the creation of the Elite Dashboard.
+- **Developer Handbook**: [developer.md](developer.md) - Technical guide for developers and AI agents.
+- **Troubleshooting**: [troubleshooting_summary.md](troubleshooting_summary.md) - History of resolved bugs.
 
 ## 1. Project Overview
 The Elite Dashboard is a high-performance productivity tracker featuring:
