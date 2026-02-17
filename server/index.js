@@ -31,6 +31,11 @@ mongoose.connect(MONGODB_URI)
     })
     .catch(err => console.error('Could not connect to MongoDB', err));
 
+// Health Check Endpoint for Keep-Alive
+app.get('/api/health', (req, res) => {
+    res.status(200).json({ status: 'ok', message: 'Server is awake' });
+});
+
 app.get('/api/goals', async (req, res) => {
     try {
         const goals = await Goal.find();

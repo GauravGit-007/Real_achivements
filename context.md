@@ -36,6 +36,7 @@ Before going live, we implemented industry-standard security:
 - **Vercel (Frontend)**: Planned deployment for the React application.
     - *Challenge 1*: Resolved a TypeScript build error by removing the explicit `.tsx` extension from `import App from './App'` in `main.tsx`.
     - *Challenge 2*: Configured `VITE_API_URL` environment variable to link the frontend to the live Render backend.
+- **Optimization**: Added `/api/health` endpoint and `cron-job.org` integration to prevent Render spin-down.
 - **Branching Strategy**: Established a `dev` branch for safe feature testing and a `main` branch for stable live deployments.
 
 ## 3. Critical Troubleshooting Log
