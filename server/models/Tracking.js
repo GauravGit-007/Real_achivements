@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const trackingSchema = new mongoose.Schema({
     goal_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Goal', required: true },
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     date: { type: String, required: true },
     count: { type: Number, default: 1 }
 });

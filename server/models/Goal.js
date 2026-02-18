@@ -5,6 +5,7 @@ const goalSchema = new mongoose.Schema({
     target: { type: Number, required: true },
     current: { type: Number, default: 0 },
     color: { type: String },
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     created_at: { type: Date, default: Date.now }
 });
 
